@@ -14,5 +14,8 @@ This is for Front End Nano Degree within Million Arab Programmers. It's the thir
 - I added a field for country code with dafualt value of **us**
 
 ## Final
-The project has **localhost:3000** as the main url. [_website_](website/) is the web folder
+The project has **localhost:3000** as the main url.
+
+[_website_](website/) is the web folder
+
 _server.bat_ will start the **_node server_** directly :)
