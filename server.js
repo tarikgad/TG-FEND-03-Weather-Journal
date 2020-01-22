@@ -1,4 +1,3 @@
-// Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
 // Require Express to run server and routes
@@ -6,7 +5,7 @@ const express = require('express');
 
 // Start up an instance of app
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 /* Middleware*/
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,33 +23,25 @@ function listening(){
     console.log(`running on localhost: ${port}`);
 };
 
-// Setup Server
-const api_key = cd06e8d66f42f857487e98edafbb36ca;
-const owm = api.openweathermap.org;
-
 // GET route
 app.get('/all', sendData);
 
 function sendData (request, response) {
     response.send(projectData);
+    console.log("GET: ");
+    console.log(projectData);
 };
 
 // POST route
-app.post('/add', callBack);
+app.post('/add', add);
 
-function callBack(req,res){
-    let data = request.body;
-    projectData["animal"]= data.animal;
-    console.log(data);
-    res.send('POST received');
-}
-
-// POST an animal
-const data = [];
-
-app.post('/animal', addAnimal);
-
-function addAnimal (req,res){
-    data.push(req.body);
+function add (req,res){
+    const data_collect = req.body;
+    projectData["city"]= data_collect.city;
+    projectData["date"]= data_collect.date;
+    projectData["temp"]= data_collect.temp;
+    projectData["feelings"]= data_collect.feelings;
+    console.log("POST: ");
+    console.log(projectData);
 };
 
